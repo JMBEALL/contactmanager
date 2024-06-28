@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./javascripts/jquery.js"></script>
+    <script src="./javascripts/handlebars.js"></script>
+    <link rel="stylesheet" href="./stylesheets/styles.css" />
+    <link rel="stylesheet" href="./stylesheets/whitespaceReset.css" />
+    <!-- fontawesome integration -->
+    <script
+      src="https://kit.fontawesome.com/7d5c505419.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
+      integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div id="headContainer">
+        <div id="title">Contact Manager</div>
+        <div id="usage">Using Handlebars and Vanilla JavaScript.</div>
+      </div>
+    </header>
+    <div id="addContact">
+      <form action="">
+        <input id="submitButton" type="submit" value="Add Contact" />
+        <input id="search" type="text" placeholder="Search" />
+      </form>
+    </div>
+    <div class="contacts-container"></div>
+
+    <!-- handlebars templates -->
+    <script id="contacts-template" type="text/x-handlebars-template">
+      {{#if contacts.length}}
+      <ul class="contacts-template">
+        {{#each contacts}}
+          {{> individual-contact-template}}
+        {{/each}}
+      </ul>
+      {{else}}
+        {{> no-contacts-template}}
+      {{/if}}
+    </script>
+
+    <script id="add-contact-template" type="text/x-handlebars-template">
+      <form class="add-contact" action="">
+        <div>
+          <h1>Create Contact</h1>
+        </div>
+        <div class="form-div">
+          <div>
+            <label id="full_name" for="full_name"><strong>Full Name:</strong></label>
+            <input
+              placeholder="Jon Doe"
+              type="text"
+              name="full_name"
+              required
+            />
+          </div>
+          <div>
+            <label id="email" for="email"><strong>Email:</strong></label>
+            <input
+              placeholder="JonDoe@launcschool.com"
+              type="email"
+              name="email"
+              required
+            />
+          </div>
+          <div>
+            <label id="phone_number" for="phone_number"><strong
+              >Telephone:</strong></label>
+            <input
+              placeholder="123-456-7890"
+              type="tel"
+              name="phone_number"
+              required
+              pattern="\d\d\d-\d\d\d-\d\d\d\d"
+            />
+          </div>
+          <div>
+            <input id="new-contact-submit" type="submit" />
+            <!-- set the type to button so that it was not implicitly acting as a submit button and submitting the form when clicked  -->
+            <button id="newContactCancel" type="button">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </script>
+
+    <script id="edit-contact-template" type="text/x-handlebars-template">
+      <form class="update-contact" action="">
+        <div>
+          <h1>Update Contact</h1>
+        </div>
+        <div class="form-div">
+          <div>
+            <label id="full_name" for="full_name"><strong>Full Name:</strong></label>
+            <input
+              placeholder="Jon Doe"
+              type="text"
+              name="full_name"
+              value="{{full_name}}"
+              required
+            />
+          </div>
+          <div>
+            <label id="email" for="email"><strong>Email:</strong></label>
+            <input
+              placeholder="JonDoe@launcschool.com"
+              type="email"
+              name="email"
+              value="{{email}}"
+              required
+            />
+          </div>
+          <div>
+            <label id="phone_number" for="phone_number"><strong
+              >Telephone:</strong></label>
+            <input
+              placeholder="123-456-7890"
+              type="tel"
+              name="phone_number"
+              value="{{phone_number}}"
+              required
+              pattern="\d\d\d-\d\d\d-\d\d\d\d"
+            />
+          </div>
+          <div>
+            <input id="edit-contact-submit" type="submit" />
+            <!-- set the type to button so that it was not implicitly acting as a submit button and submitting the form when clicked  -->
+            <button id="editContactCancel" type="button">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </script>
+    <!-- handlebars partials -->
+    <!-- 1) iterating through all contacts returned and rendering indiviual contact card for each -->
+
+    <script id="individual-contact" type="text/x-handlebars-template">
+      <div class="individual-contact" data-contactId="{{id}}">
+        <h3>{{full_name}}</h3>
+        <div>
+          <p><strong>Phone Number:</strong></p>
+          <p>{{phone_number}}</p>
+        </div>
+        <div>
+          <p><strong>Email:</strong></p>
+          <p>{{email}}</p>
+        </div>
+        <div class="buttons">
+          <button><i class="fa-solid fa-pencil"></i>Edit</button>
+          <button><i class="fa-solid fa-trash"></i>Delete</button>
+        </div>
+      </div>
+    </script>
+
+    <!-- 2) default if there are no contacts in the contact manager yet. -->
+    <script id="no-contacts" type="text/x-handlebars-template">
+      <div class="no-contacts">
+        <h1>You have no contacts in this manager.</h1>
+        <button id="no-contacts-button">Add Contact</button>
+      </div>
+    </script>
+
+    <script src="./javascripts/contacts.js"></script>
+  </body>
+</html>

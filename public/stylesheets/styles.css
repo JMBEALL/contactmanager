@@ -1,0 +1,138 @@
+header {
+  background-color: #684ca8;
+  margin: 0;
+  padding: 0;
+  height: 14.4vh;
+}
+
+#headContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+}
+
+#title {
+  color: white;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+#usage {
+  color: rgba(255, 255, 255, 0.673);
+  font-size: 20px;
+}
+
+#addContact {
+  width: 75vh;
+  height: 9vh;
+  background-color: #ededed;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+#submitButton {
+  background-color: #ededed;
+  border: 1px solid #5630a5;
+  border-radius: 5px;
+  padding: 8px 13px;
+  color: #5630a5;
+  font-size: 20px;
+}
+
+#submitButton:hover {
+  background-color: #5630a5;
+  color: white;
+}
+
+#search {
+  border: 1px solid #dcdcdc;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 15px;
+}
+
+.individual-contact {
+  border-bottom: 2px solid purple;
+  width: 200px;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  margin: 15px;
+}
+
+.individual-contact button,
+#no-contacts-button,
+.form-div div button,
+.form-div div input[type="submit"] {
+  background-color: white;
+  color: #5630a5;
+  border: 1px solid #5630a5;
+  border-radius: 5px;
+  padding: 3px 7px;
+}
+
+.individual-contact button:hover,
+#no-contacts-button:hover,
+.form-div div button:hover,
+.form-div div input[type="submit"]:hover {
+  color: white;
+  background-color: #5630a5;
+}
+
+i {
+  margin-right: 5px;
+}
+
+.individual-contact h3,
+.individual-contact div {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.contacts-template {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.no-contacts {
+  border: 2px solid black;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+form.add-contact,
+form.update-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25%;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-div div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
